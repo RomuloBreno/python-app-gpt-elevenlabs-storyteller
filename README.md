@@ -29,23 +29,23 @@ Esses arquivos servem como template para a geração de roteiros e podem ser ada
 
 
 
-Instalação
+##Instalação
 Clone o repositório:
 
 ```bash
 git clone https://github.com/seu_usuario/seu_projeto.git
 ```
-- Acesse o diretório do projeto:
+ Acesse o diretório do projeto:
 ```bash
 cd seu_projeto
 ```
-- Crie e ative um ambiente virtual:
+ Crie e ative um ambiente virtual:
 ```bash
 python -m venv venv
 source venv/bin/activate  # Linux/MacOS
 venv\Scripts\activate  # Windows
 ```
-- Instale as dependências:
+ Instale as dependências:
 ```bash
 pip install -r requirements.txt
 ```
