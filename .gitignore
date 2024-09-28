@@ -1,0 +1,38 @@
+appsettings.Development.json
+__pycache__
+*__pycache__
+*.pyc
+*.pyo
+# Arquivos Python
+*.py[cod]
+__pycache__/
+*.so
+
+# Ambientes virtuais
+env
+env/
+venv/
+.venv/
+
+# Configurações de IDE
+.idea/
+.vscode/
+
+# Arquivos de configuração local
+.env
+
+# Logs
+*.log
+
+# Dependências
+site-packages/
+Pipfile.lock
+
+# Compilação
+build/
+dist/
+
+# Arquivos de cache do sistema
+*.swp
+*.bak
+*~

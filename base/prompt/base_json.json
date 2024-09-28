@@ -1,0 +1,38 @@
+{
+  "voice": {
+    "texto_completo":"Você sabia que o Egito Antigo esconde segredos incríveis! Pirâmides e estrelas: As pirâmides de Gizé foram alinhadas com precisão à constelação de Órion, associada ao deus Osíris. O Livro dos Mortos: Um conjunto de feitiços e orações enterrados com os mortos, ajudando na jornada pelo submundo. Hieróglifos: Escrita complexa que combinava símbolos fonéticos e logogramas. Poucos sabiam lê-los. O peso da alma: No julgamento dos mortos, a alma era pesada contra uma pena de avestruz. Se fosse mais pesada, Ammit, o devorador, a consumia. Deuses e animais: Muitos deuses egípcios tinham cabeças de animais, como Anúbis, com cabeça de chacal, e Ísis, com cabeça de vaca. Curta e siga para mais curiosidades do passado!",
+    "intro": "Você sabia que o Egito Antigo esconde segredos incríveis!",
+    "curiosidades": [
+      {
+        "tempo": "0 a 3 segundos",
+        "texto": "Pirâmides e estrelas: As pirâmides de Gizé foram alinhadas com precisão à constelação de Órion, associada ao deus Osíris.",
+        "imagem": "Animação mostrando a constelação de Órion e as pirâmides de Gizé alinhadas."
+      },
+      {
+        "tempo": "4 a 10 segundos",
+        "texto": "O Livro dos Mortos: Um conjunto de feitiços e orações enterrados com os mortos, ajudando na jornada pelo submundo.",
+        "imagem": "Páginas antigas do Livro dos Mortos sendo enterradas com um sarcófago."
+      },
+      {
+        "tempo": "11 a 17 segundos",
+        "texto": "Hieróglifos: Escrita complexa que combinava símbolos fonéticos e logogramas. Poucos sabiam lê-los.",
+        "imagem": "Hieróglifos esculpidos em paredes de templos, com zoom em detalhes."
+      },
+      {
+        "tempo": "18 a 24 segundos",
+        "texto": "O peso da alma: No julgamento dos mortos, a alma era pesada contra uma pena de avestruz. Se fosse mais pesada, Ammit, o devorador, a consumia.",
+        "imagem": "Animação da balança com a alma e a pena, e Ammit ao lado."
+      },
+      {
+        "tempo": "25 a 31 segundos",
+        "texto": "Deuses e animais: Muitos deuses egípcios tinham cabeças de animais, como Anúbis, com cabeça de chacal, e Ísis, com cabeça de vaca.",
+        "imagem": "Representações de Ísis e Anúbis em arte egípcia."
+      }
+    ],
+    "encerramento": {
+      "tempo": "39 a 55 segundos",
+      "texto": "O Egito Antigo foi uma civilização cheia de mistérios!",
+      "narrador": "Curta e siga para mais curiosidades do passado!"
+    }
+  }
+}
