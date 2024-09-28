@@ -1,4 +1,75 @@
-Para que o projeto inicie os seguintes requisitos devem ser avaliados:
- - Tenha o Python-3.11
- - Mude as chaves das apis e os diretorios no arquivo appsettings.json
- - Existem dois arquivos base em /base/prompt/ e eles podem ser alterados para modelos de roteiros desejados
+Projeto de Criação de Roteiros e Narrações para Mídias Sociais
+Este projeto é uma aplicação pensada e fundamentada na criação de roteiros e narrações para mídias sociais, utilizando a inteligência artificial do ChatGPT em conjunto com a ElevenLabs para geração e narração de textos. A solução visa facilitar a criação de conteúdo dinâmico e atraente para diversas plataformas.
+
+Funcionalidades
+Geração de Roteiros: Com o uso do ChatGPT, o sistema gera roteiros customizados para postagens e vídeos de acordo com os padrões de escrita definidos.
+Narrações Automatizadas: Integração com a API ElevenLabs para transformar os roteiros em narrações de alta qualidade.
+Suporte Multilíngue: Capaz de gerar conteúdos em múltiplos idiomas, aproveitando as capacidades do modelo multilingue v2 do ElevenLabs.
+Requisitos
+Para que o projeto seja iniciado, certifique-se de que os seguintes requisitos sejam atendidos:
+
+Python 3.11: A aplicação foi desenvolvida utilizando Python 3.11. Certifique-se de que esta versão esteja instalada no seu ambiente.
+
+Você pode verificar sua versão do Python com o comando:
+
+bash
+Copy code
+python --version
+Configuração das Chaves de API: O arquivo appsettings.json contém as chaves das APIs do ChatGPT e ElevenLabs, bem como os diretórios de trabalho. Certifique-se de substituir essas chaves pelas suas credenciais pessoais e ajustar os diretórios conforme sua necessidade.
+
+Exemplo de estrutura do arquivo appsettings.json:
+
+json
+Copy code
+{
+  "api_keys": {
+    "chatgpt": "SUA_API_CHATGPT_AQUI",
+    "elevenlabs": "SUA_API_ELEVENLABS_AQUI"
+  },
+  "directories": {
+    "output_dir": "/caminho/para/saida",
+    "base_prompt_dir": "/caminho/para/base/prompt"
+  }
+}
+Modelos de Roteiros Personalizados: Existem dois arquivos base localizados no diretório /base/prompt/. Estes arquivos podem ser modificados para adequar o formato de roteiro desejado.
+
+Esses arquivos servem como template para a geração de roteiros e podem ser adaptados conforme as necessidades de cada projeto.
+
+Instalação
+Clone o repositório:
+
+bash
+Copy code
+git clone https://github.com/seu_usuario/seu_projeto.git
+Acesse o diretório do projeto:
+
+bash
+Copy code
+cd seu_projeto
+Crie e ative um ambiente virtual:
+
+bash
+Copy code
+python -m venv venv
+source venv/bin/activate  # Linux/MacOS
+venv\Scripts\activate  # Windows
+Instale as dependências:
+
+bash
+Copy code
+pip install -r requirements.txt
+Ajuste o arquivo appsettings.json com as suas chaves de API e diretórios.
+
+Uso
+Depois de configurar as APIs e os diretórios, você pode executar o script principal para gerar roteiros e narrações automaticamente:
+
+bash
+Copy code
+python main.py
+A aplicação irá gerar os roteiros e, em seguida, criar as narrações com base nos templates definidos em /base/prompt/.
+
+Contribuição
+Sinta-se à vontade para abrir um pull request ou reportar issues. Suas contribuições são muito bem-vindas!
+
+Licença
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
