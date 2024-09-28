@@ -26,3 +26,30 @@ Para que o projeto seja iniciado, certifique-se de que os seguintes requisitos s
 ## Modelos de Roteiros Personalizados:
 - Existem dois arquivos base localizados no diretório /base/prompt/. Estes arquivos podem ser modificados para adequar o formato de roteiro desejado.
 Esses arquivos servem como template para a geração de roteiros e podem ser adaptados conforme as necessidades de cada projeto.
+
+
+
+Instalação
+Clone o repositório:
+
+```bash
+Copy code
+git clone https://github.com/seu_usuario/seu_projeto.git
+Acesse o diretório do projeto:
+```
+```bash
+Copy code
+cd seu_projeto
+Crie e ative um ambiente virtual:
+```
+```bash
+Copy code
+python -m venv venv
+source venv/bin/activate  # Linux/MacOS
+venv\Scripts\activate  # Windows
+Instale as dependências:
+```
+```bash
+Copy code
+pip install -r requirements.txt
+```
