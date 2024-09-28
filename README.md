@@ -20,5 +20,9 @@ Para que o projeto seja iniciado, certifique-se de que os seguintes requisitos s
   python --version
   ```
 
- ## Configuração das Chaves de API: 
- - O arquivo appsettings.json contém as chaves das APIs do ChatGPT e ElevenLabs, bem como os diretórios de trabalho. Certifique-se de substituir essas chaves pelas suas credenciais pessoais e ajustar os diretórios conforme sua necessidade.
+## Configuração das Chaves de API: 
+- O arquivo appsettings.json contém as chaves das APIs do ChatGPT e ElevenLabs, bem como os diretórios de trabalho. Certifique-se de substituir essas chaves pelas suas credenciais pessoais e ajustar os diretórios conforme sua necessidade.
+
+## Modelos de Roteiros Personalizados:
+- Existem dois arquivos base localizados no diretório /base/prompt/. Estes arquivos podem ser modificados para adequar o formato de roteiro desejado.
+Esses arquivos servem como template para a geração de roteiros e podem ser adaptados conforme as necessidades de cada projeto.
