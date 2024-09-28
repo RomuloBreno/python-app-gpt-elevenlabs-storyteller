@@ -33,23 +33,19 @@ Instalação
 Clone o repositório:
 
 ```bash
-Copy code
 git clone https://github.com/seu_usuario/seu_projeto.git
-Acesse o diretório do projeto:
 ```
+- Acesse o diretório do projeto:
 ```bash
-Copy code
 cd seu_projeto
-Crie e ative um ambiente virtual:
 ```
+- Crie e ative um ambiente virtual:
 ```bash
-Copy code
 python -m venv venv
 source venv/bin/activate  # Linux/MacOS
 venv\Scripts\activate  # Windows
-Instale as dependências:
 ```
+- Instale as dependências:
 ```bash
-Copy code
 pip install -r requirements.txt
 ```
