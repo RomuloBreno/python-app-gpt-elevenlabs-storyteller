@@ -1,7 +1,7 @@
 import json
 
 # AppSetting
-def load_config(file_path='appsettings.json'):
+def load_config(file_path='appsettings.Development.json'):
     with open(file_path, 'r') as config_file:
         config = json.load(config_file)
     return config

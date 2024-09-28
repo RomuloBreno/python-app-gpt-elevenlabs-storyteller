@@ -1,7 +1,5 @@
 import openai
 import json
-
-from docx import Document
 from functools import partial
 import config
 
@@ -24,9 +22,10 @@ def connection_chatgpt(context, prompt, modelo="gpt-3.5-turbo"):
             ]
         )
         # Extrair a resposta gerada
+        print("--- Connecting gpt")
         resposta = response['choices'][0]['message']['content']
-        return resposta
+        return resposta, True
 
     except Exception as e:
-        return f"Ocorreu um erro: {e}"
+        return f"Ocorreu um erro: {e}", False
     
