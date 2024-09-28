@@ -21,4 +21,4 @@ Para que o projeto seja iniciado, certifique-se de que os seguintes requisitos s
   ```
 
  ## Configuração das Chaves de API: 
- - ** O arquivo appsettings.json contém as chaves das APIs do ChatGPT e ElevenLabs, bem como os diretórios de trabalho. Certifique-se de substituir essas chaves pelas suas credenciais pessoais e ajustar os diretórios conforme sua necessidade.
+ - O arquivo appsettings.json contém as chaves das APIs do ChatGPT e ElevenLabs, bem como os diretórios de trabalho. Certifique-se de substituir essas chaves pelas suas credenciais pessoais e ajustar os diretórios conforme sua necessidade.
