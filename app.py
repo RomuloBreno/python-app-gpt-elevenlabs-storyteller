@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return jsonify({"message": "Bem-vindo ao gerador de de docuemntos por IA"})
+    return jsonify({"message": "Bem-vindo ao gerador de documentos por IA"})
 
 @app.route('/health', methods=['GET'])
 def submitteste_action():
