@@ -1,4 +1,20 @@
 import json
+import os
+
+
+#Get keys
+def keygpt():
+    gpt = os.environ.get('gpt')
+    return gpt
+
+def keyeleven():
+    eleven = os.environ.get('eleven')
+    return eleven
+
+def dir_save():
+    dir_save = os.environ.get('dir_path')
+    return dir_save
+
 
 # AppSetting
 def load_config(file_path='appsettings.Development.json'):

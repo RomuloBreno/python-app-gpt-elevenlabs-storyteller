@@ -3,14 +3,15 @@ import json
 import requests
 import config
 
+### Dev
+# # Acessar as configurações
+# config_ = config.load_config()
 
-# Acessar as configurações
-config_ = config.load_config()
+# # Insira sua chave da API da OpenAI aqui
+# my_api_key = config_['appSettings']['apiKeys']['eleven']
+
+my_api_key = config.keyeleven()
 prompt = config.config_prompt()
-
-
-# Insira sua chave da API da OpenAI aqui
-my_api_key = config_['appSettings']['apiKeys']['eleven']
 voices_id = prompt['voices']
 # Gere áudio a partir de um texto
 def connection_elevenlabs(context,model="eleven_multilingual_v2"):

@@ -11,7 +11,9 @@ def home():
     return jsonify({"message": "Hello, World!"})
 
 config_ = config.load_config()
-dir_save = config_['appSettings']['dir']['save']
+#dir_save = config_['appSettings']['dir']['save']
+dir_save =  config.dir_save()
+
 app = Flask(__name__)
 
 @app.route('/submitteste', methods=['GET'])

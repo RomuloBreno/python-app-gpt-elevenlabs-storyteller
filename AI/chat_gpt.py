@@ -3,11 +3,15 @@ import json
 from functools import partial
 import config
 
-# Acessar as configurações
-config_ = config.load_config()
+### Dev
+# # Acessar as configurações
+# config_ = config.load_config()
 
-# Insira sua chave da API da OpenAI aqui
-api_key = config_['appSettings']['apiKeys']['gpt']
+# # Insira sua chave da API da OpenAI aqui
+# api_key = config_['appSettings']['apiKeys']['gpt']
+
+api_key = config.keygpt()
+
 
 # Configura a chave da API
 openai.api_key = api_key
