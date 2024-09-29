@@ -26,8 +26,10 @@ def submitteste_action():
 def data_handler():
     data = request.json
     response = submit.submit_action(dir_save,data)
-    download_file(response)
-    return response
+    if response[1] == 201:
+        download_file(response)
+        return response
+    return {response[0]}
 
 @app.route('/download/<names_files>', methods=['GET'])
 def download_file(names_files):
