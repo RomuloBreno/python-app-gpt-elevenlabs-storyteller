@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask import Flask, jsonify, request
-import aplication.submit_action as submit
+import application.submit_action as submit
 import config
 import os
 
