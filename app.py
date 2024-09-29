@@ -7,10 +7,8 @@ import os
 
 app = Flask(__name__)
 
-# config_ = config.load_config()
-#dir_save = config_['appSettings']['dir']['save']
 dir_save =  config.dir_save()
-FOLDER = dir_save
+
 
 app = Flask(__name__)
 
@@ -31,22 +29,20 @@ def data_handler():
         return jsonify({"success": True, "data": response[0]})
     return jsonify({"success": False, "data": response[0]})
 
-@app.route('/download/<names_files>', methods=['GET'])
-def download_file(names_files):
+@app.route('/download/<name_file>', methods=['GET'])
+def download_file(name_file):
     # Caminho do arquivo temporário
     try:
+        print("--- Init download")
         data = {
-            {
-                "txt":f"{FOLDER}{names_files}.txt",
-                "json":f"{FOLDER}{names_files}.json",
-                "audio":f"{FOLDER}{names_files}.audio",
-                "title":f"{FOLDER}{names_files}"
-            }
+                "txt":f"{dir_save}{name_file}/{name_file}.txt",
+                "json":f"{dir_save}{name_file}/{name_file}.json",
+                "audio":f"{dir_save}{name_file}/{name_file}.mp3",
         }
     except Exception as e:
         return f"Erro na contrução do JSON dos arquivos | {e}", 404
     
-    file_zip = structure.create_zip(data)
+    file_zip = structure.create_zip(dir_save,data, name_file)
     # Enviar o arquivo para o cliente
     return send_file(file_zip, as_attachment=True)
 

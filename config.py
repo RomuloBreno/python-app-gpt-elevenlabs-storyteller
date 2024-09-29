@@ -1,6 +1,8 @@
 import json
 import os
-
+# Carrega as variáveis de ambiente do arquivo .env
+from dotenv import load_dotenv
+load_dotenv()
 
 #Get keys
 def keygpt():
@@ -12,15 +14,12 @@ def keyeleven():
     return eleven
 
 def dir_save():
-    dir_save = os.environ.get('dir_path')
+    dir_save = os.environ.get('dir_save')
     return dir_save
 
-
-# AppSetting
-def load_config(file_path='appsettings.Development.json'):
-    with open(file_path, 'r') as config_file:
-        config = json.load(config_file)
-    return config
+def dir_local():
+    dir_local = os.environ.get('dir_local')
+    return dir_local
 
 # Prompt
 def load_prompt(file_path='base/prompt/prompt.json'):
@@ -28,13 +27,7 @@ def load_prompt(file_path='base/prompt/prompt.json'):
         config = json.load(config_file)
     return config
 
-### Dev
-# # Acessar as configurações
-# def config_construct():
-#     config = load_config()
-#     return config
-
-# Acessar as configurações
+# Acessar as configurações do prompt
 def config_prompt():
     config = load_prompt()
     return config

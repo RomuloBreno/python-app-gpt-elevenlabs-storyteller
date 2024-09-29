@@ -5,8 +5,8 @@ from flask import Flask, send_file, jsonify
 import zipfile
 import os
 import io
+import config
 # Criando a pasta, se não existir
-
 def create_doc(resp, dir, title):
     if title:
         dir_create = os.path.join(dir, title) # Salva o dir escolhido
@@ -60,30 +60,33 @@ def separar_json_txt(dir, title, arquivo_origem):
     except:
         return "Error split JSON and TXT", False
 
-def create_zip(files):
+def create_zip(dir,files, title):
     try:
-        file_txt = files[0]
-        file_json = files[1]
-        file_audio =  files[2]
+        print("--- Init create zip")
+        print(files)
+        file_txt = files['txt']
+        file_json = files['json']
+        file_audio =  files['audio']
 
         # Criar um arquivo zip em memória
-        zip_buffer = io.BytesIO()
-        
-        with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:
-            zip_file.write(file_txt, files[0])
-            zip_file.write(file_json, files[1])
-            zip_file.write(file_audio, files[2])
+    except Exception as e:
+        return f"Erro na criação do buffer zip | {e}"
+    
+    try:    
+        with zipfile.ZipFile(dir, "w", zipfile.ZIP_DEFLATED) as zip_file:
+            zip_file.write(file_txt, files['txt'])
+            zip_file.write(file_json, files['json'])
+            zip_file.write(file_audio, files['audio'])
         
         # Voltar ao início do buffer para leitura
-        zip_buffer.seek(0)
-
+        dir.seek(0)
     except Exception as e:
-        return f"Erro na criação do zip | {e}"
+        return f"Erro na escrita do zip | {e}"
     
     # Enviar o arquivo zip como download
     return send_file(
-        zip_buffer,
+        dir,
         as_attachment=True,
-        download_name=f"{files[3]}.zip",
+        download_name=f"{title}.zip",
         mimetype="application/zip"
     )

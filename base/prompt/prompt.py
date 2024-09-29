@@ -1,18 +1,15 @@
 import config as config_
 import os
 def define_prompt(text_value):
-        ## Dev
-        # config_contruct = config_.config_construct()
-        # dir = config_contruct['appSettings']['dir']['local']
-        dir = config_.dir_save()
+        dir_local = config_.dir_local()
         prompt = config_.config_prompt()
         try:
             # Roteiro Base para o chat modelar o TXT
-            with open(dir+"base/prompt/base_txt.txt", 'r', encoding='utf-8') as file:
+            with open(dir_local+"base/prompt/base_txt.txt", 'r', encoding='utf-8') as file:
                 txt_base = file.read()
 
             # JSON Base para o chat modelar o arquivo JSON para o evenlabs consumir
-            with open(dir+"base/prompt/base_json.json", 'r', encoding='utf-8') as file:
+            with open(dir_local+"base/prompt/base_json.json", 'r', encoding='utf-8') as file:
                 json_base = file.read()
             # Monta a mensagem para o modelo
             model_prompt = f"Levando em consideração o modelo apresentado abaixo\n\n{txt_base}"
