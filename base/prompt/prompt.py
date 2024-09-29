@@ -1,7 +1,10 @@
 import config as config_
+import os
 def define_prompt(text_value):
-        config_contruct = config_.config_construct()
-        dir = config_contruct['appSettings']['dir']['local']
+        ## Dev
+        # config_contruct = config_.config_construct()
+        # dir = config_contruct['appSettings']['dir']['local']
+        dir = config_.dir_save()
         prompt = config_.config_prompt()
         try:
             # Roteiro Base para o chat modelar o TXT
