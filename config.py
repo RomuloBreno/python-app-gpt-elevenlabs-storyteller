@@ -28,11 +28,11 @@ def load_prompt(file_path='base/prompt/prompt.json'):
         config = json.load(config_file)
     return config
 
-
-# Acessar as configurações
-def config_construct():
-    config = load_config()
-    return config
+### Dev
+# # Acessar as configurações
+# def config_construct():
+#     config = load_config()
+#     return config
 
 # Acessar as configurações
 def config_prompt():
