@@ -28,8 +28,8 @@ def data_handler():
     response = submit.submit_action(dir_save,data)
     if response[1] == 201:
         download_file(response)
-        return response
-    return jsonify({"success": True, "data": response[0]})
+        return jsonify({"success": True, "data": response[0]})
+    return jsonify({"success": False, "data": response[0]})
 
 @app.route('/download/<names_files>', methods=['GET'])
 def download_file(names_files):
