@@ -5,9 +5,12 @@ import structure.doc_interface as manipule_docs
 import json
 import config
 
-# Acessar as configurações
-config_ = config.load_config()
-dir_save = config_['appSettings']['dir']['save']
+### Dev
+# # Acessar as configurações
+# config_ = config.load_config()
+# dir_save = config_['appSettings']['dir']['save']
+
+dir_save = config.dir_save()
 
 def submit_action(global_dir_save, data_json):
     def access_text(text_value,context_value,title):
