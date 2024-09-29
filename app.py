@@ -6,9 +6,6 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return jsonify({"message": "Hello, World!"})
 
 # config_ = config.load_config()
 #dir_save = config_['appSettings']['dir']['save']
@@ -16,9 +13,13 @@ dir_save =  config.dir_save()
 
 app = Flask(__name__)
 
-@app.route('/submitteste', methods=['GET'])
+@app.route('/')
+def home():
+    return jsonify({"message": "Bem-vindo ao gerador de de docuemntos por IA"})
+
+@app.route('/health', methods=['GET'])
 def submitteste_action():
-    return jsonify(message="Hello, World!")
+    return jsonify(message="Tudo certo com a aplicação")
 
 @app.route('/submit', methods=['POST'])
 def data_handler():
