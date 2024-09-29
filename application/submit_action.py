@@ -75,7 +75,7 @@ def submit_action(global_dir_save, data_json):
         if not json_elevenlabs_response[1]:
             return f"Error EvenLabs | {json_elevenlabs_response[0]}", 404
         
-        return "Ok", 201
+        return title, 201
     except:
         return "Erro na validação do JSON", 404
         

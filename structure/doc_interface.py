@@ -1,6 +1,10 @@
 import os
 from pathlib import Path
 import re
+from flask import Flask, send_file, jsonify
+import zipfile
+import os
+import io
 # Criando a pasta, se não existir
 
 def create_doc(resp, dir, title):
@@ -55,3 +59,31 @@ def separar_json_txt(dir, title, arquivo_origem):
         return json_file, True
     except:
         return "Error split JSON and TXT", False
+
+def create_zip(files):
+    try:
+        file_txt = files[0]
+        file_json = files[1]
+        file_audio =  files[2]
+
+        # Criar um arquivo zip em memória
+        zip_buffer = io.BytesIO()
+        
+        with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:
+            zip_file.write(file_txt, files[0])
+            zip_file.write(file_json, files[1])
+            zip_file.write(file_audio, files[2])
+        
+        # Voltar ao início do buffer para leitura
+        zip_buffer.seek(0)
+
+    except Exception as e:
+        return f"Erro na criação do zip | {e}"
+    
+    # Enviar o arquivo zip como download
+    return send_file(
+        zip_buffer,
+        as_attachment=True,
+        download_name=f"{files[3]}.zip",
+        mimetype="application/zip"
+    )
