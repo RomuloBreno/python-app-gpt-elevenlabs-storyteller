@@ -68,3 +68,8 @@ def create_doc(response_gpt):
         return f"Error create document | {create_json_file} | {create_txt_file}", None,  False
     print("--- Docs Created")
     return create_txt_file, create_json_file , True
+
+def save_zip(dir,download):
+        # Salva o buffer do ZIP em um arquivo
+        with open(dir, 'wb') as f:
+            f.write(download.read())
