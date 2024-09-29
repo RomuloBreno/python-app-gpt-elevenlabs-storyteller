@@ -6,20 +6,21 @@ load_dotenv()
 
 #Get keys
 def keygpt():
-    gpt = os.environ.get('GPT')
+    gpt = os.getenv('GPT')
     return gpt
 
 def keyeleven():
-    eleven = os.environ.get('ELEVEN')
+    eleven = os.getenv('ELEVEN')
     return eleven
 
 def dir_save():
-    dir_save = os.environ.get('DIR_SAVE')
+    dir_save = os.getenv('DIR_SAVE')
     return dir_save
 
 def dir_local():
-    dir_local = os.environ.get('DIR_LOCAL')
-    return dir_local
+    # Obtém o caminho do diretório onde o script atual está localizado
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    return current_dir
 
 # Prompt
 def load_prompt(file_path='base/prompt/prompt.json'):

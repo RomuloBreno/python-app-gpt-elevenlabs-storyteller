@@ -2,19 +2,12 @@ from flask import Flask, jsonify
 from flask import Flask, jsonify, request, send_file
 import application.submit_action as submit
 import config
+import requests
 import structure.doc_interface as structure
 import os
 
 app = Flask(__name__)
-
-from dotenv import load_dotenv
-import os
-
-# Especifique o caminho correto para o arquivo .env
-load_dotenv('C:/Users/Romulo/Desktop/python-app-gpt-elevenlabs-storyteller/.env')
-
-dir_save =  os.environ.get('DIR_SAVE')
-# dir_save =  config.dir_save()
+dir_save =  config.dir_save()
 
 @app.route('/')
 def home():
@@ -29,7 +22,8 @@ def data_handler():
     data = request.json
     response = submit.submit_action(dir_save,data)
     if response[1] == 201:
-        download_file(response)
+        print('--- Init Download')
+        requests.get(f'/download/{response[0]}')
         return jsonify({"success": True, "data": response[0]})
     return jsonify({"success": False, "data": response[0]})
 
@@ -45,10 +39,9 @@ def download_file(name_file):
         }
     except Exception as e:
         return f"Erro na contrução do JSON dos arquivos | {e}", 404
-    print(dir_save)
-    file_zip = structure.create_zip(dir_save,data, name_file)
+    file_zip = structure.create_zip(data)
     # Enviar o arquivo para o cliente
-    return send_file(file_zip, as_attachment=True)
+    return send_file(file_zip, as_attachment=True, download_name=f'{name_file}.zip', mimetype="application/zip")
 
 
 if __name__ == '__main__':

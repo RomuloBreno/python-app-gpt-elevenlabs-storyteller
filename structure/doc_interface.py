@@ -58,10 +58,9 @@ def separar_json_txt(dir, title, arquivo_origem):
     except:
         return "Error split JSON and TXT", False
 
-def create_zip(dir,files, title):
+def create_zip(files):
     try:
         print("--- Init create zip")
-        print(files)
         file_txt = files['txt']
         file_json = files['json']
         file_audio =  files['audio']
@@ -69,22 +68,18 @@ def create_zip(dir,files, title):
         # Criar um arquivo zip em memória
     except Exception as e:
         return f"Erro na criação do buffer zip | {e}"
-    
+   
+    import io
+    # Cria um buffer em memória
+    zip_buffer = io.BytesIO()
     try:    
-        with zipfile.ZipFile(dir, "w", zipfile.ZIP_DEFLATED) as zip_file:
+        with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:
             zip_file.write(file_txt, files['txt'])
             zip_file.write(file_json, files['json'])
             zip_file.write(file_audio, files['audio'])
         
         # Voltar ao início do buffer para leitura
-        dir.seek(0)
+        zip_buffer.seek(0)
+        return zip_buffer
     except Exception as e:
         return f"Erro na escrita do zip | {e}"
-    
-    # Enviar o arquivo zip como download
-    return send_file(
-        dir,
-        as_attachment=True,
-        download_name=f"{title}.zip",
-        mimetype="application/zip"
-    )

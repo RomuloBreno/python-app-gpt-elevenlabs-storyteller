@@ -27,9 +27,7 @@ def connection_elevenlabs(context,model="eleven_multilingual_v2"):
         }
         print("--- Connecting elevenlabs")
         response = requests.post(url, json=data, headers=headers) 
-        print(response.content)
-
-
+        print(f"--- Content ElevenLbas{response}")
         return response, True
     except Exception as e:
         return f"Ocorreu um erro: {e}", False

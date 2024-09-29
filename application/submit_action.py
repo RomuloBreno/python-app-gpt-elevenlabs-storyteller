@@ -31,34 +31,34 @@ def submit_action(global_dir_save, data_json):
                 json_gpt_response = manipule_docs.separar_json_txt(global_dir_save, title, file_name)
                 return json_gpt_response[0].name, True
             else:
-                return f"Error invalid prompt return {prompt[0]}"
+                return f"Error invalid prompt return | {prompt[0]} |", False
         except:
             if not response_gpt[1]:
-                return f"Erro na criação do roteiro | Erro de Conexão" , False
+                return f"Error create story | Erro de Conexão" , False
             elif not json_gpt_response[1]:
-                return f"Erro na criação do roteiro | {json_gpt_response[0]}" , False
+                return f"Erro create story| {json_gpt_response[0]}" , False
             else:
-                return f"Erro na criação do roteiro | {prompt[0]}" , False
+                return f"Erro create story | {prompt[0]}" , False
 
     def access_voice(title,json_gpt_response_name):
         # JSON Base para o chat modelar o arquivo JSON para o evenlabs consumir
         try:
+            print("--- Init call elevenlabs")
             with open(json_gpt_response_name, 'r', encoding='utf-8') as file:
                 json_base = file.read()
             data = json.loads(json_base)
-            print("--- Init call elevenlabs")
 
             response_eleven = labs.connection_elevenlabs(data['voice']['texto_completo'])
             if not response_eleven[1]:
-                return f"Erro ElevenLabs | {response_eleven[0].content}", False
+                return f"Error ElevenLabs connection | {response_eleven[0].content}", False
             
             file_name = manipule_docs.save_audio(response_eleven[0].content, global_dir_save, title)
             if not file_name:
-                return f"Erro File Name | {file_name[0]['detail']['message']}", False
+                return f"Error File Name | {file_name[0]['detail']['message']}", False
             
             return file_name, True
         except:
-            return "Erro na criação da narração", False
+            return "Error create storyteller", False
    
    # Mapping JSON and Valid Returns
     try:
@@ -68,16 +68,17 @@ def submit_action(global_dir_save, data_json):
         context_value = json_teste['context']
 
         json_gpt_response = access_text(text_value,context_value,title)
+        print(json_gpt_response)
         if not json_gpt_response[1]:
             return f"Error GPT : {json_gpt_response[0]}", 404
         
         json_elevenlabs_response = access_voice(title,json_gpt_response[0])
         if not json_elevenlabs_response[1]:
-            return f"Error EvenLabs | {json_elevenlabs_response[0]}", 404
+            return f"Error EvenLabs invalid | {json_elevenlabs_response[0]}", 404
         
         return title, 201
     except:
-        return "Erro na validação do JSON", 404
+        return "Error valid to JSON", 404
         
 
     
