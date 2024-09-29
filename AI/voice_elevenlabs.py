@@ -26,11 +26,11 @@ def connection_elevenlabs(context,model="eleven_multilingual_v2"):
         }
         }
         print("--- Connecting elevenlabs")
-        response = requests.post(url, json=data, headers=headers) 
-        print(f"--- Content ElevenLbas{response}")
-        return response, True
+        response = requests.post(url, json=data, headers=headers)
+        return response
     except Exception as e:
-        return f"Ocorreu um erro: {e}", False
+        print(f"### Error in connection{e}")
+        return None
 
 # def get_voices():
 #     # Defina a URL e a chave da API

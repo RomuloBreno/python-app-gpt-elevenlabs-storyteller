@@ -16,12 +16,12 @@ def define_prompt(text_value):
             # Monta a mensagem para o modelo
             model_prompt = f"Levando em consideração o modelo apresentado abaixo\n\n{txt_base}"
             roles_prompt = f"\n\nPreciso que crie uma roteiro para narrador para a midia {prompt['midia']} com duração de {prompt['time']} em um TXT identico ao modelo sobre o assunto: "
-            convert_prompt = f"\n\nApós isso crie um JSON identico ao modelo {json_base} com base no TXT criado"
-
+            convert_prompt = f"\n\nApós isso crie um JSON com base no TXT criado identico ao modelo {json_base}"
+            # prompt = f"{roles_prompt}{text_value}"
             prompt = f"{model_prompt}{roles_prompt}{text_value}\n\n{convert_prompt}"
-            return prompt, True
+            return prompt
         except:
-             return "Erro na validação dos modelos", False
+             return None
 
 
 
