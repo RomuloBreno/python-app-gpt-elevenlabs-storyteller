@@ -6,19 +6,19 @@ load_dotenv()
 
 #Get keys
 def keygpt():
-    gpt = os.environ.get('gpt')
+    gpt = os.environ.get('GPT')
     return gpt
 
 def keyeleven():
-    eleven = os.environ.get('eleven')
+    eleven = os.environ.get('ELEVEN')
     return eleven
 
 def dir_save():
-    dir_save = os.environ.get('dir_save')
+    dir_save = os.environ.get('DIR_SAVE')
     return dir_save
 
 def dir_local():
-    dir_local = os.environ.get('dir_local')
+    dir_local = os.environ.get('DIR_LOCAL')
     return dir_local
 
 # Prompt

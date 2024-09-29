@@ -7,10 +7,14 @@ import os
 
 app = Flask(__name__)
 
-dir_save =  config.dir_save()
+from dotenv import load_dotenv
+import os
 
+# Especifique o caminho correto para o arquivo .env
+load_dotenv('C:/Users/Romulo/Desktop/python-app-gpt-elevenlabs-storyteller/.env')
 
-app = Flask(__name__)
+dir_save =  os.environ.get('DIR_SAVE')
+# dir_save =  config.dir_save()
 
 @app.route('/')
 def home():
@@ -41,7 +45,7 @@ def download_file(name_file):
         }
     except Exception as e:
         return f"Erro na contrução do JSON dos arquivos | {e}", 404
-    
+    print(dir_save)
     file_zip = structure.create_zip(dir_save,data, name_file)
     # Enviar o arquivo para o cliente
     return send_file(file_zip, as_attachment=True)

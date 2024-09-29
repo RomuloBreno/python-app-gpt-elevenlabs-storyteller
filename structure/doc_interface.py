@@ -1,11 +1,9 @@
 import os
-from pathlib import Path
 import re
-from flask import Flask, send_file, jsonify
+from flask import send_file
 import zipfile
 import os
-import io
-import config
+
 # Criando a pasta, se não existir
 def create_doc(resp, dir, title):
     if title:
